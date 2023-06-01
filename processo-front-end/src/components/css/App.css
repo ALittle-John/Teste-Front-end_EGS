@@ -1,37 +1,35 @@
-.Total-scream {
-  display: flex;
-  background-color: #ebe3e3da;
+/*CSS Página 1*/
+
+.Total-scream1 {
   align-items: center;
-  min-height: 118vh;
+  display: flex;
   height: auto;
+  min-height: 118vh;
 }
 
 .Div-Left {
-  background: linear-gradient(to left, #0CD5F6, #16EAA9 99%);
-  border-radius: 12px 0px 0px 12px;
-  min-height: 115vh;
-  margin-left: 10%;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  border-radius: 12px 0px 0px 12px;
+  display: flex;
   font-size: calc(10px + 2vmin);
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10%;
+  min-height: 115vh;
+  width: 50vw;
 }
 
 .imageContainer {
-  width: 200px;
   height: 200px;
+  width: 200px;
 }
 
 .Div-Right {
   align-items: center;
-  background-color: #060314;
   border-radius: 0px 12px 12px 0px;
-  color: #b3aba0;
   display: flex;
-  flex-direction: column;
   font-size: calc(10px + 2vmin);
+  flex-direction: column;
   justify-content: center;
   margin-right: 10%;
   min-height: 115vh;
@@ -49,34 +47,29 @@
   font-weight: 100;
   margin-bottom: 8%;
   margin-top: -15px;
-  color: #09bb94;
 }
 
 input {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  padding: 4px;
-  margin: 20px;
-  width: 72%;
   font-size: 14px;
+  margin: 20px;
+  padding: 4px;
+  width: 72%;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
-.Birthday {
-  color: #b3aba0b4;
-}
-
 label {
-  font-size: 12px;
+  align-items: center;
   display: flex;
-  width: 70%;
+  font-size: 12px;
   height: 1px;
   justify-content: flex-start;
-  align-items: center
+  width: 70%;
 }
 
 .CheckBox {
@@ -90,17 +83,15 @@ label {
 }
 
 button {
-  display: flexbox;
   align-self: center;
+  display: flexbox;
   margin-top: 11%;
-  width: 72%;
   padding: 7px;
-  background-color: #16eac7;
+  width: 72%;
 }
 
 .noWhere {
-  text-decoration: underline;
-  color: #b3aba0;
-  font-size: 10px;
   margin-top: 10px;
+  font-size: 10px;
+  text-decoration: underline;
 }
