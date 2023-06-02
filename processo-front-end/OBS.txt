@@ -1,0 +1,5 @@
+Tentei usar algo para o espelhamento de dados do formulário para a tabela, mas estava dando erro. Comecei a ficar sem ideia, recursos e paciência, então decidi apenas comentar o código envés de excluir, e continuar o processo da interface. 
+
+Independente se eu passar ou não nesse processo seletivo, irei melhorar esse projeto com o tempo, até atingir o nível de perfeição que eu quero.
+
+Demorei muito para fazer tudo isso. Tive ajuda da comunidade e amigos. Tenho muita coisa a melhorar, mas fiz o que pude com o conhecimento e o tempo que tive, busquei fazer o meu melhor já que nunca tinha usado React.js tão profundamente assim, e eu gostei muito dessa experiência!
