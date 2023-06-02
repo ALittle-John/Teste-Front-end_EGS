@@ -1,5 +1,5 @@
 import React, { useState, useEffect/*, useContext*/ } from 'react';
-import { useNavigate /*,Link*/} from 'react-router-dom';
+import { useNavigate/*,Link*/} from 'react-router-dom';
 
 // import { FormContext, FormProvider } from '../components/FormContext';
 import '../App';
@@ -8,13 +8,14 @@ import '../components/css/App.css';
 import '../components/css/color.css';
 import logo from '../assets/logo_null_egs.png';
 
-const SaveSignup = () => {
+const Signup = () => {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
   const [birthday, setBirthday] = useState('');
   const [principalMail, setPrincipalMail] = useState('');
   const [cpfNumber, setCPFNumber] = useState('');
-  const [allFieldsFilled, setAllFieldsFilled] = useState(false);
+  
+  const [allFieldsFilled, setAllFieldsFilled] = useState(false);  
 
   const navigate = useNavigate();
 
@@ -31,7 +32,16 @@ const SaveSignup = () => {
 
     // addFormData(data);
     
-    navigate('/register');
+    navigate('/register', {
+      state: {
+        data: {
+          name1,
+          name2,
+          birthday,
+          principalMail,
+          cpfNumber
+        }
+      }});
   };
 
   const handleInputChange = (e) => {
@@ -141,4 +151,4 @@ const SaveSignup = () => {
   );
 };
 
-export default SaveSignup;
+export default Signup;

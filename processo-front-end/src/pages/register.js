@@ -1,5 +1,5 @@
 import React /*{useContext}*/ from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // import { FormContext } from '../pages/FormContext';
 
 import tableData from '../components/catchCache';
@@ -11,7 +11,12 @@ import logo from '../assets/logo_null_egs.png';
 
 const Page2 = () => {
 
+  const location = useLocation();
+  const SaveData = location.state?.data
+
   const lastData = tableData[tableData.length - 1];
+  // const { name1, name2 } = location.state || {};
+
 
   const navigate = useNavigate();
   const handleButtonClick = () => {
@@ -25,31 +30,39 @@ const Page2 = () => {
           <img className="imageLogo" onClick={handleButtonClick} src={logo} alt="Logo EGS Sistemas" />
         </div>
         <div className="Nome-e-Sobrenome">
-            <span>{lastData.name1} {lastData.name2}</span>
+            <span>{lastData.name1/*name1*/} {lastData.name2/*name2*/}</span>
         </div>
       </div>
       <div className="Schedule">
         <div className='Together'>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Sobrenome</th>
-              <th>Idade</th>
-              <th>E-mail</th>
-              <th>CPF</th>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Idade</th>
+            <th>E-mail</th>
+            <th>CPF</th>
+          </tr>
+        </thead>
+        {SaveData && Object.keys(SaveData).length > 0 ? (
+          <tr>
+            <td>{SaveData.name1}</td>
+            <td>{SaveData.name2}</td>
+            <td>{SaveData.birthday}</td>
+            <td>{SaveData.principalMail}</td>
+            <td>{SaveData.cpfNumber}</td>
+          </tr>
+        ) : (
+          tableData.map((data, index) => (
+            <tr key={index}>
+              <td>{data.name1}</td>
+              <td>{data.name2}</td>
+              <td>{data.birthday}</td>
+              <td>{data.principalMail}</td>
+              <td>{data.cpfNumber}</td>
             </tr>
-          </thead>
-          <tbody>
-            {tableData.map((data, index) => (
-              <tr key={index}>
-                <td>{data.name1}</td>
-                <td>{data.name2}</td>
-                <td>{data.birthday}</td>
-                <td>{data.principalMail}</td>
-                <td>{data.cpfNumber}</td>
-              </tr>
-            ))}
-          </tbody>
+          ))
+        )}
         </div>
       </div>
     </div>
