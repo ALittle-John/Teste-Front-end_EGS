@@ -1,7 +1,7 @@
 // import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Page1 from "./pages/signup";
+import SaveSignup from "./pages/signup";
 import Page2 from "./pages/register";
 
 // function App() {
@@ -51,7 +51,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="" element={<Page1 />} />
+        <Route name="Page1" path="" element={<SaveSignup />} />
         <Route path="/register" element={<Page2 />} />
       </Routes>
     </Router>
