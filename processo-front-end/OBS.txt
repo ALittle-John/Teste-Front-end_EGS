@@ -1,4 +1,5 @@
 Tentei usar algo para o espelhamento de dados do formulário para a tabela, mas estava dando erro. Comecei a ficar sem ideia, recursos e paciência, então decidi apenas comentar o código envés de excluir, e continuar o processo da interface. 
+O Botão enviar só fica disponível após completar todos os inputs. O input da idade só é considerado como completo preenchendo ele clicando na data dentro do icone do calendário, e o input do cpf, ainda vou mehorar ele.
 
 Independente se eu passar ou não nesse processo seletivo, irei melhorar esse projeto com o tempo, até atingir o nível de perfeição que eu quero.
 
