@@ -1,33 +1,74 @@
-import React /*{ useState }*/ from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState, useEffect/*, useContext*/ } from 'react';
+import { useNavigate /*,Link*/} from 'react-router-dom';
 
+// import { FormContext, FormProvider } from '../components/FormContext';
 import '../App';
 import './register';
 import '../components/css/App.css';
 import '../components/css/color.css';
-import  logo from '../assets/logo_null_egs.png';
+import logo from '../assets/logo_null_egs.png';
 
-// export const SaveSignup = () => {
-//   const [name1, setName1] = useState('')
-//   const [name2, setName2] = useState('')
-//   const [birthday, setBirthday] = useState('')
-//   const [principalmail, setPrincipalMail] = useState('')
-//   const [cpfnumber, setCPFnumber] = useState('')
+const SaveSignup = () => {
+  const [name1, setName1] = useState('');
+  const [name2, setName2] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [principalMail, setPrincipalMail] = useState('');
+  const [cpfNumber, setCPFNumber] = useState('');
+  const [allFieldsFilled, setAllFieldsFilled] = useState(false);
 
-  // function Page1() {
-    const Page1 = () => {
+  const navigate = useNavigate();
 
-      const navigate = useNavigate();
-
+  // const { addFormData } = useContext(FormContext);
+  
   const handleButtonClick = () => {
+    // const data = {
+    //   name1,
+    //   name2,
+    //   birthday,
+    //   principalMail,
+    //   cpfNumber
+    // };
+
+    // addFormData(data);
+    
     navigate('/register');
   };
 
-  //   const handleButtonClick = () => {
-  //     window.location.href = './register';
-  // };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-    return (
+    switch (name) {
+      case 'Name1':
+        setName1(value);
+        break;
+      case 'Name2':
+        setName2(value);
+        break;
+      case 'Birthday':
+        setBirthday(value);
+        break;
+      case 'PrincipalMail':
+        setPrincipalMail(value);
+        break;
+      case 'CPFNumber':
+        setCPFNumber(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Verificar se todos os campos obrigatórios estão preenchidos
+  useEffect(() => {
+    if (name1 && name2 && birthday && principalMail && cpfNumber) {
+      setAllFieldsFilled(true);
+    } else {
+      setAllFieldsFilled(false);
+    }
+  }, [name1, name2, birthday, principalMail, cpfNumber]);
+
+  return (
+    // <FormProvider>
       <div className="Total-scream1">
         <div className="Div-Left">
           <div className="imageContainer">
@@ -35,61 +76,69 @@ import  logo from '../assets/logo_null_egs.png';
           </div>
         </div>
         <div className="Div-Right">
-          <h3>
-            TESTE
-            </h3>
-          <h6>
-            EGS SISTEMAS
-          </h6>
-          
+          <h3>TESTE</h3>
+          <h6>EGS SISTEMAS</h6>
           <label htmlFor="Name1">NOME:</label>
-          <input 
-          className="Name1" 
-          type="text" 
-          placeholder="Escreva seu nome" 
-          required={true}/>
-          
+          <input
+            name="Name1"
+            type="text"
+            placeholder="Escreva seu nome"
+            value={name1}
+            onChange={handleInputChange}
+            required={true}
+          />
           <label htmlFor="Name2">SOBRENOME:</label>
-          <input 
-          className="Name2" 
-          type="text" 
-          placeholder="Escreva seu nome" 
-          required={true}/>
-
+          <input
+            name="Name2"
+            type="text"
+            placeholder="Escreva seu nome"
+            value={name2}
+            onChange={handleInputChange}
+            required={true}
+          />
           <label htmlFor="Birthday">IDADE:</label>
-          <input 
-          className="Birthday" 
-          type="date" 
-          required={true}/>
-
+          <input
+            name="Birthday"
+            type="date"
+            value={birthday}
+            onChange={handleInputChange}
+            required={true}
+          />
           <label htmlFor="PrincipalMail">E-MAIL:</label>
-          <input 
-          className="PrincipalMail" 
-          type="email" 
-          placeholder="Escreva seu Escreva seu e-mail" 
-          required={true}/>
-
+          <input
+            name="PrincipalMail"
+            type="email"
+            placeholder="Escreva seu Escreva seu e-mail"
+            value={principalMail}
+            onChange={handleInputChange}
+            required={true}
+          />
           <label htmlFor="CPFnumber">CPF:</label>
-          <input 
-          className="CPFnumber" 
-          type="text" 
-          placeholder="000.000.000-00" 
-          title="Digite seu CPF" 
-          required={true}/>
-
+          <input
+            type="text"
+            name="CPFNumber"
+            placeholder="000.000.000-00"
+            title="Digite seu CPF"
+            value={cpfNumber}
+            onChange={handleInputChange}
+            required={true}
+          />
           <div>
-            <label className="CheckBox" htmlFor="CheckBox">Aceito os termos e condições
-              <input type="checkbox"/>
+            <label className="CheckBox" htmlFor="CheckBox">
+              Aceito os termos e condições
+              <input type="checkbox" />
             </label>
           </div>
-
-            <button onClick={handleButtonClick}>
-              ENVIAR
-            </button>
-          <a href="#" className="noWhere">I'm already a a member</a>
+          {/* <Link to="/register"> */}
+            <button onClick={handleButtonClick} disabled={!allFieldsFilled}>ENVIAR</button>
+          {/* </Link> */}
+          <a href="#" className="noWhere">
+            I'm already a member
+          </a>
         </div>
       </div>
-    );
-  };
-// };
-export default Page1;
+    // </FormProvider>
+  );
+};
+
+export default SaveSignup;
