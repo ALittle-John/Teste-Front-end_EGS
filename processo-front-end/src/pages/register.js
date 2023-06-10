@@ -14,7 +14,7 @@ const Page2 = () => {
   const location = useLocation();
   const SaveData = location.state?.data
 
-  const lastData = tableData[tableData.length - 1];
+  // const lastData = tableData[tableData.length - 1];
   // const { name1, name2 } = location.state || {};
 
 
@@ -30,7 +30,7 @@ const Page2 = () => {
           <img className="imageLogo" onClick={handleButtonClick} src={logo} alt="Logo EGS Sistemas" />
         </div>
         <div className="Nome-e-Sobrenome">
-            <span>{lastData.name1/*name1*/} {lastData.name2/*name2*/}</span>
+            <span>{`${SaveData.name1} ${SaveData.name2}`}</span>
         </div>
       </div>
       <div className="Schedule">
